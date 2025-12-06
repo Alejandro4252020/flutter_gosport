@@ -133,6 +133,7 @@ class _HomePageState extends State<HomePage>
               const SizedBox(height: 25),
 
               // Imagen inferior con overlay blanco
+              
               _imagenConOverlay('assets/images/black.webp', height: 200),
 
               const SizedBox(height: 20),
