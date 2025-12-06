@@ -1,0 +1,19 @@
+name: gosport_app
+description: GoSport Reservas de Canchas Demo (Comentado)
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  pdf: ^3.11.3
+  printing: ^5.14.2
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
