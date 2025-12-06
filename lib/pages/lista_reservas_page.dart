@@ -1,28 +1,8 @@
 import 'package:flutter/material.dart';
 import 'reservations_data.dart';
 import 'home_page.dart';
-import 'pdf_generator.dart'; // 📌 IMPORTANTE PARA EL PDF
+import 'pdf_generator.dart'; //    IMPORTANTE PARA EL PDF
 
-// Define la clase Reserva si no está en reservations_data.dart
-// Si no la tienes, descomenta y usa esta o define la tuya.
-/*
-class Reserva {
-  final String cancha;
-  final String fecha;
-  final String codigo;
-  final String nombre;
-  final String telefono;
-  Reserva({
-    required this.cancha,
-    required this.fecha,
-    required this.codigo,
-    required this.nombre,
-    required this.telefono,
-  });
-}
-// Variable global para las reservas (asumiendo que está definida así)
-List<Reserva> reservasGuardadas = [];
-*/
 
 class ListaReservasPage extends StatefulWidget {
   const ListaReservasPage({super.key});
@@ -39,7 +19,7 @@ class _ListaReservasPageState extends State<ListaReservasPage>
   // --- Colores del Diseño Oscuro ---
   final Color _darkBackground = const Color(0xFF2C2F33); // Fondo principal
   final Color _cardBackground = const Color(0xFF42464D); // Fondo de las Cards
-  final Color _accentColor = Colors.deepOrange.shade700; // Color de acento (Appbar, botones)
+  final Color _accentColor = const Color.fromARGB(255, 255, 255, 255); // Color de acento (Appbar, botones)
 
   @override
   void initState() {
@@ -66,11 +46,12 @@ class _ListaReservasPageState extends State<ListaReservasPage>
       backgroundColor: _darkBackground,
       appBar: AppBar(
         title: const Text("Mis Reservas", style: TextStyle(color: Colors.white)),
-        backgroundColor: _accentColor,
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         elevation: 6,
         actions: [
           IconButton(
             icon: const Icon(Icons.picture_as_pdf, color: Colors.white),
+            
             onPressed: () {
               PDFGenerator.generarPDF();
             },
@@ -169,7 +150,7 @@ class _ListaReservasPageState extends State<ListaReservasPage>
                 const SizedBox(height: 12),
                 _botonPrincipal(
                   icon: Icons.picture_as_pdf,
-                  texto: "Imprimir PDF",
+                  texto: "Imprimir Comprobante de Reserva",
                   color: Colors.green.shade700,
                   onTap: () => PDFGenerator.generarPDF(),
                 ),
@@ -194,7 +175,7 @@ class _ListaReservasPageState extends State<ListaReservasPage>
             child: Text(
               titulo,
               style: TextStyle(
-                // 🎨 Texto en color claro
+                //  Texto en color claro
                 fontWeight: FontWeight.bold, 
                 color: Colors.grey.shade300, 
               ),
@@ -203,7 +184,7 @@ class _ListaReservasPageState extends State<ListaReservasPage>
           Expanded(
             child: Text(
               valor,
-              // 🎨 Texto en color claro
+              //  Texto en color claro
               style: const TextStyle(color: Colors.white), 
             ),
           ),
@@ -347,7 +328,8 @@ class _EditarReservaPageState extends State<EditarReservaPage> {
       backgroundColor: _darkBackground,
       appBar: AppBar(
         title: const Text("Editar Reserva", style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.deepOrange.shade700,
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+        iconTheme: const IconThemeData(color: Color.fromARGB(255, 255, 255, 255)),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -406,7 +388,7 @@ class _EditarReservaPageState extends State<EditarReservaPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    _buildDarkButton("Guardar", Colors.green.shade700, () {
+                    _buildDarkButton("Guardar", const Color.fromARGB(255, 33, 185, 41), () {
                       reservasGuardadas[widget.index] = Reserva(
                         cancha: widget.reserva.cancha,
                         fecha: widget.reserva.fecha,
@@ -438,7 +420,7 @@ class _EditarReservaPageState extends State<EditarReservaPage> {
       elevation: 0, // Sin elevación para un look más plano
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8)),
-      // 🎨 Fondo blanco para el input
+      //  Fondo blanco para el input
       color: _inputBackground, 
       child: TextField(
         controller: controller,

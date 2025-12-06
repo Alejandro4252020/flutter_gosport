@@ -5,29 +5,29 @@ class CanchasPage extends StatelessWidget {
   const CanchasPage({super.key});
 
   final List<Map<String, String>> canchas = const [
-    {"name": "Cancha Central", "type": "Fútbol 5", "price": "\$20", "icon": "assets/icons/futbol_5.png"},
-    {"name": "Cancha Norte", "type": "Fútbol 7", "price": "\$35", "icon": "assets/icons/futbol_7.png"},
-    {"name": "Cancha Sur", "type": "Tenis", "price": "\$25", "icon": "assets/icons/tenis.png"},
-    {"name": "Cancha Este", "type": "Basket", "price": "\$30", "icon": "assets/icons/basket.png"},
+    {"name": "Cancha Central", "type": "Fútbol 5", "price": "\$80.000", "icon": "assets/icons/futbol_5.png"},
+    {"name": "Cancha Norte", "type": "Fútbol 7", "price": "\$75.000", "icon": "assets/icons/futbol_7.png"},
+    {"name": "Cancha Sur", "type": "Tenis", "price": "\$45.000", "icon": "assets/icons/tenis.png"},
+    {"name": "Cancha Este", "type": "Basket", "price": "\$60.000", "icon": "assets/icons/basket.png"},
   ];
 
   @override
   Widget build(BuildContext context) {
     // Definimos el color neón/verde brillante
-    const Color neonColor = Color(0xFF00FF00); 
+    const Color neonColor = Color.fromARGB(255, 7, 135, 2); 
 
     return Scaffold(
       // === CAMBIO 1: FONDO OSCURO CON GRADIENTE NEÓN (Simulando el estilo de la imagen) ===
-      backgroundColor: const Color(0xFF1E2124), 
+      backgroundColor: const Color.fromARGB(255, 66, 71, 77), 
       
       appBar: AppBar(
         title: const Text(
-          'Canchas Disponibles ⚽',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          'Canchas Disponibles',
+          style: TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontWeight: FontWeight.bold),
         ),
-        backgroundColor: const Color(0xFF1565C0), // Mantener el App Bar azul
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0), // Mantener el App Bar azul
         centerTitle: true,
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Color.fromARGB(255, 255, 255, 255)),
       ),
 
       body: Stack(
@@ -36,7 +36,7 @@ class CanchasPage extends StatelessWidget {
           // Por ahora, usaremos un Container con gradiente simple para el efecto oscuro
           
           ListView.builder(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 45),
             itemCount: canchas.length,
             itemBuilder: (context, index) {
               final cancha = canchas[index];
@@ -57,9 +57,9 @@ class CanchasPage extends StatelessWidget {
                 // === CAMBIO 2: Diseño de la tarjeta para un look deportivo oscuro y neón ===
                 child: Container(
                   margin: const EdgeInsets.only(bottom: 16),
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 45),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF2B2F33), // Color de fondo de la tarjeta oscuro
+                    color: const Color.fromARGB(255, 0, 0, 0), // Color de fondo de la tarjeta oscuro
                     borderRadius: BorderRadius.circular(10),
                     // ignore: deprecated_member_use
                     border: Border.all(color: neonColor.withOpacity(0.4), width: 1), // Borde neón
@@ -80,7 +80,7 @@ class CanchasPage extends StatelessWidget {
                         width: 50,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: const Color(0xFF42474D), // Fondo del ícono/imagen
+                          color: const Color.fromARGB(255, 66, 71, 77), // Fondo del ícono/imagen
                           borderRadius: BorderRadius.circular(8),
                           // ignore: deprecated_member_use
                           border: Border.all(color: neonColor.withOpacity(0.6), width: 1.5),

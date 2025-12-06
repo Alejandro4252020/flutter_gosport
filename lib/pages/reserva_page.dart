@@ -87,9 +87,13 @@ class _ReservaPageState extends State<ReservaPage>
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
-        title: const Text("Reservar Cancha"),
-        backgroundColor: Colors.deepOrange.shade700,
+        title: const Text(
+          'Reservar Cancha',
+          style: TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         elevation: 6,
+        iconTheme: const IconThemeData(color: Color.fromARGB(255, 255, 255, 255)),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
@@ -102,7 +106,7 @@ class _ReservaPageState extends State<ReservaPage>
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Colors.deepOrange.shade400, Colors.orange.shade700],
+                  colors: [const Color.fromARGB(255, 41, 41, 41), const Color.fromARGB(255, 0, 0, 0)],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
@@ -148,7 +152,7 @@ class _ReservaPageState extends State<ReservaPage>
                 controller: nameCtrl,
                 decoration: InputDecoration(
                   labelText: "Nombre",
-                  prefixIcon: const Icon(Icons.person, color: Colors.deepOrange),
+                  prefixIcon: const Icon(Icons.person, color: Color.fromARGB(255, 0, 0, 0)),
                   border: InputBorder.none,
                   contentPadding:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
@@ -167,7 +171,7 @@ class _ReservaPageState extends State<ReservaPage>
                 keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
                   labelText: "Teléfono",
-                  prefixIcon: const Icon(Icons.phone, color: Colors.deepOrange),
+                  prefixIcon: const Icon(Icons.phone, color: Color.fromARGB(255, 39, 39, 39)),
                   border: InputBorder.none,
                   contentPadding:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
@@ -199,7 +203,7 @@ class _ReservaPageState extends State<ReservaPage>
                 const SizedBox(width: 10),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepOrange.shade700,
+                    backgroundColor: const Color.fromARGB(255, 255, 255, 255),
                     padding:
                         const EdgeInsets.symmetric(horizontal: 22, vertical: 14),
                     shape: RoundedRectangleBorder(
@@ -216,7 +220,7 @@ class _ReservaPageState extends State<ReservaPage>
                         return Theme(
                           data: Theme.of(context).copyWith(
                             colorScheme: ColorScheme.light(
-                              primary: Colors.deepOrange.shade700,
+                              primary: const Color.fromARGB(255, 14, 158, 9),
                               onPrimary: Colors.white,
                               onSurface: Colors.black87,
                             ),
@@ -250,7 +254,7 @@ class _ReservaPageState extends State<ReservaPage>
                         horizontal: 60, vertical: 18),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Colors.deepOrange.shade400, Colors.orange.shade600],
+                        colors: [const Color.fromARGB(255, 47, 161, 13), const Color.fromARGB(255, 6, 142, 10)],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),

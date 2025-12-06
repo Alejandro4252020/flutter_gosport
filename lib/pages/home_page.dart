@@ -34,28 +34,40 @@ class _HomePageState extends State<HomePage>
 
   // Definiendo el gradiente de verde claro para ambas tarjetas
   final LinearGradient _gradienteVerdeClaro = LinearGradient(
-    colors: [Colors.lightGreenAccent.shade700, Colors.lightGreenAccent.shade400],
+    colors: [const Color.fromARGB(255, 0, 0, 0), const Color.fromARGB(255, 11, 0, 0)],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
 
   // Definiendo el color de texto oscuro para el botón
-  final Color _colorTextoBotonOscuro = Colors.green.shade900;
+  final Color _colorTextoBotonOscuro = const Color.fromARGB(255, 0, 0, 0);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
+        // ===================================
+        // 💡 AGREGAR EL ICONO/LOGO (LEADING)
+        // ===================================
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 10.0), // Margen a la izquierda
+          child: Image.asset(
+            'assets/images/logosport.png', // <-- REEMPLAZA 'logo.png' CON LA RUTA REAL DE TU LOGO
+            height: 40,
+            width: 40,
+          ),
+        ),
+        
         title: const Text(
-          'GoSport',
+          'GOSPORTS',
           style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 22,
-              color: Color(0xFF1565C0)),
+              color: Color.fromARGB(255, 239, 239, 239)),
         ),
         centerTitle: true,
-        backgroundColor: Colors.grey.shade100,
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         elevation: 6,
       ),
       body: SafeArea(
@@ -64,7 +76,7 @@ class _HomePageState extends State<HomePage>
           child: Column(
             children: [
               // Imagen superior con overlay blanco
-              _imagenConOverlay('assets/images/1.png', height: 180),
+              _imagenConOverlay('assets/images/nueva.png', height: 500),
 
               const SizedBox(height: 25),
 
@@ -76,10 +88,10 @@ class _HomePageState extends State<HomePage>
                   Expanded(
                     child: _tarjetaAnimada(
                       titulo: "Reserva tus canchas",
-                      icon: 'assets/images/logo.png',
+                      icon: 'assets/images/cancelar.png',
                       // === CAMBIO DE COLOR AQUÍ ===
                       gradiente: _gradienteVerdeClaro,
-                      colorBoton: Colors.white,
+                      colorBoton: const Color.fromARGB(255, 254, 254, 254),
                       // === AJUSTE DE TEXTO DE BOTÓN AQUÍ ===
                       colorTextoBoton: _colorTextoBotonOscuro,
                       textoBoton: "Ver Canchas",
@@ -98,7 +110,7 @@ class _HomePageState extends State<HomePage>
                   Expanded(
                     child: _tarjetaAnimada(
                       titulo: "Mis Reservas",
-                      icono: Icons.list_alt_rounded,
+                      icon: 'assets/images/cancha-de-futbol.png',
                       // === CAMBIO DE COLOR AQUÍ ===
                       gradiente: _gradienteVerdeClaro,
                       colorBoton: Colors.white,
@@ -121,10 +133,27 @@ class _HomePageState extends State<HomePage>
               const SizedBox(height: 25),
 
               // Imagen inferior con overlay blanco
-              _imagenConOverlay('assets/images/2.png', height: 200),
+              _imagenConOverlay('assets/images/black.webp', height: 200),
 
               const SizedBox(height: 20),
             ],
+          ),
+        ),
+      ),
+      // ===========================================
+      // FOOTER AGREGADO (bottomNavigationBar)
+      // ===========================================
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.black, // Fondo negro
+        child: Container(
+          height: 45,
+          alignment: Alignment.center,
+          child: const Text(
+            '© 2024 GOSPORTS. Todos los derechos reservados.',
+            style: TextStyle(
+              color: Colors.white, // Texto blanco
+              fontSize: 14,
+            ),
           ),
         ),
       ),
